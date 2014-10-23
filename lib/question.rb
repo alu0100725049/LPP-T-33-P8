@@ -2,7 +2,7 @@ require 'question/version'
 
 class Question
 
-	attr_accessor :text, :right, :distractor
+	attr_accessor :text, :right, :distract
 
 	def initialize(args)
 		@text = args[:text]
@@ -11,13 +11,13 @@ class Question
 	end
 
 	def show_q
-		options = @distractor + [@right]
+		options = @distractor + @right
 		options = options.shuffle
-		s = ''
-		options.each do |options|
-			s += %Q(#{options}\n)
+		puts "Pregunta: #{@text}"
+		options.each do |option|
+			puts "\t#{option}\n"
 		end
-		puts "#{@text}\n#{s}"
+
 	end
 
 

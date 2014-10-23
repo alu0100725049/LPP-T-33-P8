@@ -1,4 +1,5 @@
 require "bundler/gem_tasks"
+require "question"
 
 task :default => :simple
 
