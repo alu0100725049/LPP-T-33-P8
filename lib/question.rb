@@ -1,5 +1,5 @@
 require "question/version"
 
-module Question
+class Question
   # Your code goes here...
 end
