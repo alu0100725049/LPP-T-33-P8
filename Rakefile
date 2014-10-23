@@ -1,9 +1,7 @@
 require "bundler/gem_tasks"
-require "question"
+task :default => :spec
 
-task :default => :simple
-
-desc "Descripcion"
-task :simple do 
-	sh "rspec spec/lib/question_spec.rb"
+desc "Run RSpec code examples"
+task :spec do 
+	sh 'rspec spec/lib/question_spec.rb'
 end
