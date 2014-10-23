@@ -1,6 +1,6 @@
 # Question
 
-TODO: Write a gem description
+Gema que facilita la creación de examenes tipo TEST.
 
 ## Installation
 
@@ -16,10 +16,6 @@ Or install it yourself as:
 
     $ gem install question
 
-## Usage
-
-TODO: Write usage instructions here
-
 ## Contributing
 
 1. Fork it
@@ -27,3 +23,16 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Desarrolladores
+
+David Fernando Redondo Durand
+Alfredo Correa Barreto
+
+## Preguntas
+
+¿Qué significado tienen las opciones de rspec --format documentation y --format html?
+
+"--format documentation" - Seja la salida de rspec en formato de texto plano.
+
+"--format html"	- Deja la salida de rspec en formato html.
