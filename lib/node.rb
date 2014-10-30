@@ -1,7 +1,5 @@
 require 'node/version'
 
-class Node
-
 Node = Struct.new(:value, :next)
 
 	attr_accessor :value, :next
