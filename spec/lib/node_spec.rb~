@@ -1,4 +1,4 @@
-require "spec_helper"
+frequire "spec_helper"
 require "node"
 
 describe Node do 
