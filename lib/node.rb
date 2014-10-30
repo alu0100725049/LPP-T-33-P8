@@ -1,6 +1,6 @@
 require 'node/version'
 
-Node = Struct.new(:value, :next)
+Node = Struct.new(:value, :next) do
 
 	attr_accessor :value, :next
 

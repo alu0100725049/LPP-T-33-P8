@@ -1,32 +1,62 @@
 require 'list/version'
+require 'node'
 
 class List
 
-	attr_accessor :elm
+	attr_accessor :head
 
-	def initialize(args)
-		@elm = args [:elm]
+	def initialize(head)
+		@head = Node.new(
+				:value => head,
+				:next => nil)
 	end
 
-	def show
-		puts "Elementos: #{@elm}"
-	end
+	def push(args)	#Añade a la lista todos los argumentos que se le pasen
+		fin = @head
+		while fin.next != nil	#Deja en "fin" el ultimo elemento de la lista
+			fin = fin.next
+		end
 
-	def push(args)
-		elementos = @elm
-		elementos << args
+		elms = args[:elm]
+		elms.each do |elm|		#Itera entre los argumentos y se van añadiendo a la lista
+			node = Node.new(
+				:value => "#{elm}",
+				:next => nil)
+			fin.next = node
+			fin = fin.next
+		end
 	end
 
 	def pop
-		elementos = @elm
-		elementos.shift
+		fin = @head
+		while (fin.next).next != nil	#Deja en "fin" el penultimo elemento de la lista
+			fin = fin.next
+		end
+		dato = (fin.next).value
+		fin.next = nil
+		dato
 	end
 
-	def head
-		elementos = @elm
-		cabecera = elementos(0)
-		puts "Primer elemento: #{cabecera}"
+	def elm(pos)
+		fin = @head
+		i = 0
+		while i < pos
+			fin = fin.next
+			i=i+1
+		end
+		fin.value
 	end
+
+	def show
+		elemento = @head
+		i = 0
+		while elemento != nil	#Itera entre todos los elementos de la lista mientas los muestra
+			puts "#{i+1}.- #{elemento.value}"
+			elemento = elemento.next
+			i=i+1
+		end
+	end
+
 end
 
 if __FILE__ == $0	#Se ejecuta si el programa se lanza desde el fichero
