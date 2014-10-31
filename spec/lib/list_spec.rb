@@ -1,3 +1,4 @@
+# encoding : utf-8
 require "spec_helper"
 require "list"
 
@@ -33,12 +34,36 @@ describe List do
 		expect(@l.head.value).to be == "Dato1"
 	end
 
-	it "Debe imprimir la lista formateada por pantalla" do
-		@l = List.new("Dato1")
+	it "Debe devolver un examen correctamente" do
+		@q1 = Question.new(
+			:text => '¿Cual es la salida del siguiente codigo en Ruby? class Xyz def pots @nice end end',
+			:right => ['nil'],
+			:distractor => ['#<Zyz:0xa000208>','0','Ninguna de las anteriores'])
+		@q2 = Question.new(
+			:text => 'La siguiente definicion de un hash en Ruby es válida: hash_raro = { [1 ,2 ,3] => Object.new(), Hash.new => :toto }',
+			:right => ['Cierto'],
+			:distractor => ['Falso'])
+		@q3 = Question.new(
+			:text => '¿Cual es la salida del siguiente codigo en Ruby? class Array def say_hi "HEY!"end end',
+			:right => ['HEY!'],
+			:distractor => ['1','bob','Ninguna de las anteriores'])
+		@q4 = Question.new(
+			:text => '¿Cual es la el tipo de objeto en el siguiente codigo Ruby? class Objeto end',
+			:right => ['Una instancia de la clase Class'],
+			:distractor => ['Una constante','Un objeto','Ninguna de las anteriores'])
+		@q5 = Question.new(
+			:text => 'Es apropiado que una clase Tablero herede de una clase Juego',
+			:right => ['Falso'],
+			:distractor => ['Verdadero'])
 
-		@l.push(:elm => ["Dato2","Dato3"])
+		@l = List.new(@q1)
+		@l.push(:elm => [@q2,@q3,@q4,@q5])
 
-		expect(@l.show)
+		expect(@l.show).to be == 	@q1.qto_s + @q1.oto_s +
+									@q2.qto_s + @q2.oto_s +
+									@q3.qto_s + @q3.oto_s +
+									@q4.qto_s + @q4.oto_s +
+									@q5.qto_s + @q5.oto_s 
 	end
 
 end

@@ -1,4 +1,5 @@
 require 'list/version'
+require 'question'
 require 'node'
 
 class List
@@ -20,7 +21,7 @@ class List
 		elms = args[:elm]
 		elms.each do |elm|		#Itera entre los argumentos y se van añadiendo a la lista
 			node = Node.new(
-				:value => "#{elm}",
+				:value => elm,
 				:next => nil)
 			fin.next = node
 			fin = fin.next
@@ -50,11 +51,13 @@ class List
 	def show
 		elemento = @head
 		i = 0
+		s = ""
 		while elemento != nil	#Itera entre todos los elementos de la lista mientas los muestra
-			puts "#{i+1}.- #{elemento.value}"
+			s += (elemento.value).qto_s + (elemento.value).oto_s
 			elemento = elemento.next
 			i=i+1
 		end
+		s
 	end
 
 end

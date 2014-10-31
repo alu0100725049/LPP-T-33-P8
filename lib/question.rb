@@ -12,14 +12,15 @@ class Question
 
 	def show_q
 		options = @distractor + @right
-		puts "Pregunta: #{@text}"
+		puts "#{@text}"
 		options.each do |option|
-			puts "\t#{option}\n"
+			puts "#{option}"
 		end
 	end
 
 	def oto_s
 		options = @distractor + @right
+		s = ""
 		options.each do |option|
 			s += "#{option}"
 		end
@@ -27,7 +28,6 @@ class Question
 	end
 
 	def qto_s
-		options = @distractor + @right
 		s = "#{@text}"
 		s
 	end
