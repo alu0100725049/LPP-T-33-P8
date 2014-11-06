@@ -4,12 +4,13 @@ require 'node'
 
 class List
 
-	attr_accessor :head
+	attr_accessor :head, :tail
 
 	def initialize(head)
 		@head = Node.new(
 				:value => head,
 				:next => nil)
+		@tail = @node
 	end
 
 	def push(args)	#Añade a la lista todos los argumentos que se le pasen
@@ -22,9 +23,11 @@ class List
 		elms.each do |elm|		#Itera entre los argumentos y se van añadiendo a la lista
 			node = Node.new(
 				:value => elm,
-				:next => nil)
+				:next => nil,
+				:prev => fin)
 			fin.next = node
-			fin = fin.next
+			fin = node
+			@tail = node
 		end
 	end
 
@@ -35,6 +38,7 @@ class List
 		end
 		dato = (fin.next).value
 		fin.next = nil
+		@tail = fin
 		dato
 	end
 
@@ -50,12 +54,20 @@ class List
 
 	def show
 		elemento = @head
-		i = 0
 		s = ""
 		while elemento != nil	#Itera entre todos los elementos de la lista mientas los muestra
-			s += (elemento.value).qto_s + (elemento.value).oto_s
+			s += (elemento.value).show
 			elemento = elemento.next
-			i=i+1
+		end
+		s
+	end
+
+	def show_i
+		elemento = @tail
+		s = ""
+		while elemento != nil	#Itera entre todos los elementos de la lista mientas los muestra
+			s += (elemento.value).show
+			elemento = elemento.prev
 		end
 		s
 	end

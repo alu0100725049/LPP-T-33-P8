@@ -10,12 +10,8 @@ class Question
 		@distractor = args[:distractor]
 	end
 
-	def show_q
-		options = @distractor + @right
-		puts "#{@text}"
-		options.each do |option|
-			puts "#{option}"
-		end
+	def show
+		(self.qto_s + self.oto_s)
 	end
 
 	def oto_s
@@ -31,8 +27,6 @@ class Question
 		s = "#{@text}"
 		s
 	end
-
-
 
 end
 

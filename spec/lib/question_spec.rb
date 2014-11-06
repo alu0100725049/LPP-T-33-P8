@@ -1,14 +1,14 @@
 require "spec_helper"
 require "question"
 
-describe Question do 
+describe Question do
 	it "has to have a text" do
 		@q = Question.new(
 				:text => '2+5= ',
 				:right => ["Ninguna de las anteriores"],
 				:distractor => [4,5,6])
 
-		expect(@q.text) == '2+5= ' 
+		expect(@q.text) == '2+5= '
 	end
 
 	it "has to have a some options" do
@@ -28,7 +28,7 @@ describe Question do
 				:distractor => ["4 ","5 ","6 "])
 
 		expect(@q.qto_s) == "2+5 = "
-	end 
+	end
 
 	it "has to show the options" do
 		@q = Question.new(
@@ -37,13 +37,13 @@ describe Question do
 				:distractor => ["4 ","5 ","6 "])
 
 		expect(@q.qto_s) == "4 5 6 Ninguna de las anteriores"
-	end 
+	end
 
 	it "has to show the question and options" do
 		@q = Question.new(
 				:text => '2+5= ',
 				:right => ["Ninguna de las anteriores"],
 				:distractor => [4,5,6])
-		expect(@q.show_q)
-	end 
+		expect(@q.show)
+	end
 end
