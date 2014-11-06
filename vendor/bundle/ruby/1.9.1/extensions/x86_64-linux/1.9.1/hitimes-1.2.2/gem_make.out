@@ -1,0 +1,18 @@
+/usr/local/rvm/rubies/ruby-1.9.3-p550/bin/ruby -r ./siteconf20141106-22872-lwshl8.rb extconf.rb 
+checking for clock_gettime() in -lrt... yes
+creating Makefile
+
+make  clean
+
+make
+compiling hitimes_instant_osx.c
+compiling hitimes_stats.c
+compiling hitimes_instant_clock_gettime.c
+compiling hitimes.c
+compiling hitimes_interval.c
+compiling hitimes_instant_windows.c
+linking shared-object hitimes/1.9/hitimes.so
+
+make  install
+/usr/bin/install -c -m 0755 hitimes.so .gem.20141106-22872-1hqingv/hitimes/1.9
+installing default hitimes libraries
