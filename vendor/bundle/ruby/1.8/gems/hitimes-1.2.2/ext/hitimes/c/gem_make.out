@@ -1,2 +1,0 @@
-/usr/bin/ruby extconf.rb 
-mkmf.rb can't find header files for ruby at /usr/lib/ruby/ruby.h

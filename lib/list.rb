@@ -36,7 +36,7 @@ class List
 		while (fin.next).next != nil	#Deja en "fin" el penultimo elemento de la lista
 			fin = fin.next
 		end
-		dato = (fin.next).value
+		dato = fin.next
 		fin.next = nil
 		@tail = fin
 		dato

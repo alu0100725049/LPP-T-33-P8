@@ -7,7 +7,7 @@ describe List do
 		@l = List.new("Dato1")
 		@l.push(:elm => ["Dato2","Dato3"])
 
-		expect(@l.pop).to be == "Dato3"
+		expect((@l.pop).value).to be == "Dato3"
 	end
 
 	it "Se puede insertar un elemento" do
@@ -95,6 +95,9 @@ describe List do
 		@l = List.new(@q1)
 		@l.push(:elm => [@q2,@q3,@q4,@q5])
 
-		expect(@l.show_i).to be == @q5.show + @q4.show + @q3.show + @q2.show + @q1.show
+		expect(((@l.pop).prev).value).to be == @q4
+		expect(((@l.pop).prev).value).to be == @q3
+		expect(((@l.pop).prev).value).to be == @q2
+		expect(((@l.pop).prev).value).to be == @q1
 	end
 end
