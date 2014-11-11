@@ -1,5 +1,3 @@
-require 'list/version'
-require 'question'
 require 'node'
 
 class List
