@@ -1,7 +1,7 @@
 require 'node'
 
 class List
-    
+    include Enumerable
 	attr_accessor :head, :tail
 
 	def initialize(head)
@@ -69,6 +69,14 @@ class List
 		end
 		s
 	end
+    
+    def each
+        elemento = @head
+        while elemento != nil	#Itera entre todos los elementos de la lista mientas los muestra
+			yield elemento.value.show
+			elemento = elemento.next
+		end
+    end
    
 end
 

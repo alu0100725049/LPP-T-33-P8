@@ -86,4 +86,42 @@ describe List do
 		expect(((l.pop).prev).value).to be == d1
 	end
     
+    it "Debe ser enumerable (each)" do
+        q1 = SimpleChoice.new(
+			:text => 'Cual es la salida del siguiente codigo en Ruby? class Xyz def pots @nice end end',
+			:right => ['nil'],
+			:distractor => ['#<Zyz:0xa000208>','0','Ninguna de las anteriores'])
+		q2 = SimpleChoice.new(
+			:text => 'La siguiente definicion de un hash en Ruby es válida: hash_raro = { [1 ,2 ,3] => Object.new(), Hash.new => :toto }',
+			:right => ['Cierto'],
+			:distractor => ['Falso'])
+		q3 = SimpleChoice.new(
+			:text => 'Cual es la salida del siguiente codigo en Ruby? class Array def say_hi "HEY!"end end',
+			:right => ['HEY!'],
+			:distractor => ['1','bob','Ninguna de las anteriores'])
+		q4 = SimpleChoice.new(
+			:text => 'Cual es el tipo de objeto en el siguiente codigo Ruby? class Objeto end',
+			:right => ['Una instancia de la clase Class'],
+			:distractor => ['Una constante','Un objeto','Ninguna de las anteriores'])
+		q5 = SimpleChoice.new(
+			:text => 'Es apropiado que una clase Tablero herede de una clase Juego',
+			:right => ['Falso'],
+			:distractor => ['Verdadero'])
+		l = List.new(q1)
+		l.push(:elm => [q2,q3,q4,q5])
+        
+        collect = ""
+        l.each do |i|
+            collect << i
+        end   
+        expect(collect).to be == q1.show + q2.show + q3.show + q4.show + q5.show
+        
+        
+        collect = ""
+        (l.sort).each do |i|
+            collect << i
+        end  
+        expect(collect).to be == q4.show + q3.show + q1.show + q5.show + q2.show
+    end
+    
 end
