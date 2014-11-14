@@ -85,4 +85,5 @@ describe List do
 		expect(((l.pop).prev).value).to be == d2
 		expect(((l.pop).prev).value).to be == d1
 	end
+    
 end

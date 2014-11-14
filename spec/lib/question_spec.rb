@@ -13,4 +13,13 @@ describe Question do
 		expect(@q.show).to be == '2+5='
 	end
     
+    it "has to be comparable" do
+		q1 = Question.new(:text => '2+5=')
+        q2 = Question.new(:text => 'Cual de estas preguntas es correcta?')
+		expect(q1 <=> q2).to be == -1
+        expect(q1 > q2).to be == FALSE
+        expect(q1 < q2).to be == TRUE
+        expect(q1 == q2).to be == FALSE
+	end
+    
 end
