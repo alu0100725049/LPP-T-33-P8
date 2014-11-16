@@ -110,18 +110,22 @@ describe List do
 		l = List.new(q1)
 		l.push(:elm => [q2,q3,q4,q5])
         
-        collect = ""
-        l.each do |i|
-            collect << i
+        i=0
+        l.each do |elm|
+            expect(elm).to be == l.elm(i).show
+            i=i+1
         end   
-        expect(collect).to be == q1.show + q2.show + q3.show + q4.show + q5.show
         
-        
-        collect = ""
-        (l.sort).each do |i|
-            collect << i
+        i=0
+        (l.sort).each do |elm|
+            if i==0 then    expect(elm).to be == q4.show
+            elsif i==1 then expect(elm).to be == q3.show
+            elsif i==2 then expect(elm).to be == q1.show
+            elsif i==3 then expect(elm).to be == q5.show
+            elsif i==4 then expect(elm).to be == q2.show
+            end
+            i=i+1
         end  
-        expect(collect).to be == q4.show + q3.show + q1.show + q5.show + q2.show
     end
     
 end

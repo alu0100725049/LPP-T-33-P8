@@ -23,6 +23,10 @@ class Question
     def <=> (question)
         self.show.size <=> question.show.size
     end
+    
+    def == (question)
+        self.show == question.show
+    end
 
     
 end
