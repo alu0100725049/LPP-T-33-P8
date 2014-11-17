@@ -7,16 +7,28 @@ class TrueFalse < Question
 	def initialize(args)
 		super(:text => args[:text])
 		@right = args[:right]
-		if @right == "TRUE" 
-			@distractor = "FALSE"
+		if @right == ["TRUE"] 
+			@distractor = ["FALSE"]
 		else
-			@distractor = "TRUE"
+			@distractor = ["TRUE"]
 		end
 	end
 
 	def options_to_s
 		"#{@distractor}" + "#{@right}"
 	end
+    
+    def right
+        @right[0]
+    end
+    
+    def distractor
+        s = ""
+        @distractor.each do |distract|
+            s += distract
+        end
+        s
+    end
 
 end
 

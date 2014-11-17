@@ -1,5 +1,3 @@
-require 'exam/version'
-
 class Question
     include Comparable
 	attr_accessor :text

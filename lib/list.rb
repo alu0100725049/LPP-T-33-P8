@@ -4,43 +4,60 @@ class List
     include Enumerable
 	attr_accessor :head, :tail
 
-	def initialize(head)
-		@head = Node.new(
-				:value => head,
-				:next => nil)
-		@tail = @node
+	def initialize()
+		@head = nil
+        @tail = nil
 	end
 
 	def push(args)	#Añade a la lista todos los argumentos que se le pasen
-		fin = @head
-		while fin.next != nil	#Deja en "fin" el ultimo elemento de la lista
-			fin = fin.next
-		end
+        
+        elms = args[:elm]
+        elms.each do |elm|		#Itera entre los argumentos y se van añadiendo a la lista
+            
+            if @head == nil     #En el caso de que la lista este vacia
+                @head = Node.new(
+                    :value => elm,
+                    :next => nil,
+                    :prev => nil)   
+                @tail = @head
+                
+            else                #En el caso de que la lista tenga al menos un elemento
+                fin = @head
+                while fin.next != nil	#Deja en "fin" el ultimo elemento de la lista
+                    fin = fin.next
+                end
 
-		elms = args[:elm]
-		elms.each do |elm|		#Itera entre los argumentos y se van añadiendo a la lista
-			node = Node.new(
-				:value => elm,
-				:next => nil,
-				:prev => fin)
-			fin.next = node
-			fin = node
-			@tail = node
-		end
+                    node = Node.new(
+                        :value => elm,
+                        :next => nil,
+                        :prev => fin)
+                    fin.next = node
+                    fin = node
+                    @tail = node
+            end
+        end
 	end
-
+ 
 	def pop
-		fin = @head
-		while (fin.next).next != nil	#Deja en "fin" el penultimo elemento de la lista
+        fin = @tail.prev    #Deja en "fin" el penultimo elemento de la lista
+        dato = @tail
+        @tail = fin
+        dato
+	end
+    
+    def del(pos)
+        fin = @head
+		i = 0
+		while i < pos
 			fin = fin.next
+			i=i+1
 		end
-		dato = fin.next
-		fin.next = nil
-		@tail = fin
-		dato
+		(fin.prev).next = fin.next
+        (fin.next).prev = fin.prev
+        fin = nil
 	end
 
-	def elm(pos)
+	def [](pos)
 		fin = @head
 		i = 0
 		while i < pos
@@ -77,7 +94,7 @@ class List
 			elemento = elemento.next
 		end
     end
-   
+    
 end
 
 if __FILE__ == $0	#Se ejecuta si el programa se lanza desde el fichero

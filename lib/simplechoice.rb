@@ -19,6 +19,10 @@ class SimpleChoice < Question
 		end
 		s
 	end
+    
+    def right
+        @right[0]
+    end
 
 end
 
