@@ -7,11 +7,11 @@ class Question
 	end
 	
 	def text_to_s
-		"#{@text}"
+		"#{@text}\n"
 	end
 	
 	def show
-		(self.text_to_s + self.options_to_s)
+		self.text_to_s + self.options_to_s
 	end
 	
 	def options_to_s

@@ -1,13 +1,9 @@
-require 'exam/version'
 require 'list'
-require "truefalse"
-require "simplechoice"
 
 class Exam
-    attr_accessor :list, :name, :npreg
+    attr_accessor :list, :npreg
     
-    def initialize(name = "Sin Nombre")
-        @name = name
+    def initialize
         @list = List.new
         @npreg = 0
     end
@@ -21,8 +17,7 @@ class Exam
     end
     
     def to_s
-        s = @name + @list.show
-        s
+        @list.show
     end
     
     def [](pos)
@@ -33,11 +28,19 @@ class Exam
        @list.del(pos-1) 
     end
     
-    def resp(i,resp)
-        if list[i-1].right.to_s == resp
-            true
-        else
-            false
-        end
+    def show
+        s = ""
+        (@list.sort).each do |elm|
+            s = s + elm.show
+        end  
+        s
+    end
+    
+    def order
+        a = []
+        (@list.sort).each do |elm|
+            a << elm
+        end  
+        a
     end
 end

@@ -10,7 +10,7 @@ describe Question do
 
     it "has to show text and option/s" do
 		@q = Question.new(:text => '2+5=')
-		expect(@q.show).to be == '2+5='
+		expect(@q.show).to be == "2+5=\n"
 	end
     
     it "has to be comparable" do

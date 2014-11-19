@@ -90,10 +90,15 @@ class List
     def each
         elemento = @head
         while elemento != nil	#Itera entre todos los elementos de la lista mientas los muestra
-			yield elemento.value.show
+			yield elemento.value
 			elemento = elemento.next
 		end
     end
+    
+    def sort
+        self.sort_by{|elm| elm.show}
+    end
+    
     
 end
 

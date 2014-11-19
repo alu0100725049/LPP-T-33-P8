@@ -9,13 +9,21 @@ class SimpleChoice < Question
 		@right = args[:right]
 		@distractor = args[:distractor]
 	end
+    
+    def check(resp)
+        if self.right == "#{resp}"
+            return true
+        else
+            return false
+        end
+    end
 
 
 	def options_to_s
 		options = @distractor + @right
 		s = ""
 		options.each do |option|
-			s += "#{option}"
+			s += "\t#{option}\n"
 		end
 		s
 	end

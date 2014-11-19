@@ -3,6 +3,7 @@ task :default => :spec
 
 desc "Run RSpec code examples"
 task :spec do
+    sh 'bundle exec rspec spec/lib/examgui_spec.rb'
     sh 'bundle exec rspec spec/lib/exam_spec.rb'
 	sh 'bundle exec rspec spec/lib/question_spec.rb'
 	sh 'bundle exec rspec spec/lib/simplechoice_spec.rb'
