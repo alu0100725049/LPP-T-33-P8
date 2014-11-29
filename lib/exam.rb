@@ -6,21 +6,29 @@ class Exam
     def initialize(list)
         @list = list
         @npreg = 0;
+    end
+    
+    def npreg
+        @npreg = 0;
         self.order.each do 
             @npreg = @npreg + 1
         end
+        return @npreg
     end
-    
+
     def to_s
         @list.show
     end
     
     def [](pos)
-        list[pos-1].show
+        @list.sort[pos-1].show
     end
     
     def del(pos)
-       @list.del(pos-1) 
+        list = List.new
+        list.push(:elm => @list.sort)
+        list.del(pos-1) 
+        @list = list
     end
     
     def show
