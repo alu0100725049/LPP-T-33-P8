@@ -2,12 +2,13 @@ require 'exam/version'
 require 'exam'
 require 'simplechoice'
 require 'truefalse'
+require 'list'
 
 class ExamGUI
     attr_accessor :exam, :name
     
     def initialize(name = "Sin Nombre")
-        @exam = Exam.new
+        @exam = Exam.new(List.new)
         @name = name
     end
     
@@ -24,7 +25,7 @@ class ExamGUI
                 :right => args[:right])
         end
         
-        @exam.add(:elm => [q])
+        (@exam.list).push(:elm => [q])
     end
         
     def check(resp)

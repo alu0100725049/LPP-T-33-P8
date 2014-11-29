@@ -3,15 +3,10 @@ require 'list'
 class Exam
     attr_accessor :list, :npreg
     
-    def initialize
-        @list = List.new
-        @npreg = 0
-    end
-    
-    def add(args)
-        elms = args[:elm]
-        elms.each do |elm|
-            @list.push(:elm => [elm])
+    def initialize(list)
+        @list = list
+        @npreg = 0;
+        self.order.each do 
             @npreg = @npreg + 1
         end
     end
