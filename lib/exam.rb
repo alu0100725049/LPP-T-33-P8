@@ -39,6 +39,14 @@ class Exam
         s
     end
     
+    def show_i
+        s = ""
+        (@list.sort).reverse_each do |elm|
+            s = s + elm.show
+        end  
+        s
+    end
+
     def order
         a = []
         (@list.sort).each do |elm|

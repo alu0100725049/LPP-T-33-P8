@@ -94,11 +94,10 @@ class List
 			elemento = elemento.next
 		end
     end
-    
+
     def sort
         self.sort_by{|elm| elm.show}
     end
-    
     
 end
 

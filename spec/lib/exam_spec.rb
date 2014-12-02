@@ -99,7 +99,6 @@ describe Exam do
         expect(exam[2]).to be == q2.show
     end
     
-    
     it "Debe mostrar el examen ordenado" do
         list = List.new
     q1 = SimpleChoice.new(
@@ -119,6 +118,27 @@ describe Exam do
     exam = Exam.new(list)
 
         expect(exam.show).to be == q3.show + q1.show + q2.show
+    end
+
+     it "Debe mostrar el examen en orden inverso" do
+        list = List.new
+    q1 = SimpleChoice.new(
+            :text => 'Cual es la salida del siguiente codigo en Ruby? class Xyz def pots @nice end end',
+            :right => ['nil'],
+            :distractor => ['#<Zyz:0xa000208>','0','Ninguna de las anteriores'])
+    q2 = TrueFalse.new(
+            :text => 'Es apropiado que una clase Tablero herede de una clase Juego',
+            :right => "FALSE")
+
+    q3 = SimpleChoice.new(
+            :text => 'Cual es la el tipo de objeto en el siguiente codigo Ruby? class Objeto end',
+            :right => ['Una instancia de la clase Class'],
+            :distractor => ['Una constante','Un objeto','Ninguna de las anteriores'])
+        
+    list.push(:elm => [q1,q2,q3])
+    exam = Exam.new(list)
+
+        expect(exam.show_i).to be == q2.show + q1.show + q3.show
     end
     
 end

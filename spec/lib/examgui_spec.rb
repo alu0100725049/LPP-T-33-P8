@@ -42,4 +42,12 @@ describe ExamGUI do
         expect(exam.check(resp3)).to be == [false,true]
 	end
 
+    it "Debe mostrarse el nombre del examen y las preguntas en orden inverso" do
+        exam = ExamGUI.new
+        exam.add(:type => 1, :text => "2+5=", :right => ["Ninguna de las anteriores"], :distractor => ["4","5","6"])
+        exam.add(:type => 0, :text => 'Es apropiado que una clase Tablero herede de una clase Juego', :right => ["FALSE"])
+        
+        expect(exam.show_i).to be == exam.name + "Es apropiado que una clase Tablero herede de una clase Juego\n\tTRUE\n\tFALSE\n2+5=\n\t4\n\t5\n\t6\n\tNinguna de las anteriores\n"
+    end
+
 end

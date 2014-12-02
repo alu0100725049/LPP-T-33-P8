@@ -41,5 +41,9 @@ class ExamGUI
     def show
         @name + @exam.show 
     end
+
+    def show_i
+        @name + @exam.show_i
+    end
             
 end
