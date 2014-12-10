@@ -7,9 +7,22 @@ require 'list'
 class ExamGUI
     attr_accessor :exam, :name
     
-    def initialize(name = "Sin Nombre")
+    def initialize(name = "Sin Nombre", &block)
         @exam = Exam.new(List.new)
         @name = name
+        
+        instance_eval &block
+    end
+    
+    def question(text, options = {})
+        distractors = []
+        distractors << options[:wrong] while options[:wrong]
+            
+        if(options[:right] == 'FALSE' || options[:right] == 'TRUE')
+            add(:type => 0, :text => text, :right => options[:right])
+        elsif
+            add(:type => 1, :text => text, :right => options[:right] , :distractor => distractors )
+        end
     end
     
     def add(args)   #Añade una pregunta al examen
@@ -44,6 +57,14 @@ class ExamGUI
 
     def show_i
         @name + @exam.show_i
+    end
+    
+    def right
+       :right 
+    end
+    
+    def wrong
+        :wrong 
     end
             
 end
