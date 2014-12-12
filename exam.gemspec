@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Exam::VERSION
   spec.authors       = ["David Fernando Redondo Durand"]
   spec.email         = ["alu0100851700@ull.edu.es"]
-  spec.description   = %q{ Write a gem description}
-  spec.summary       = %q{ Write a gem summary}
+  spec.description   = %q{Gema para la creacion de un examen de tipo test}
+  spec.summary       = %q{Gem summary}
   spec.homepage      = ""
   spec.license       = "MIT"
 
