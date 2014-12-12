@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Gema para la creacion de un examen de tipo test}
   spec.summary       = %q{Gem summary}
   spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.license       = ""
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }

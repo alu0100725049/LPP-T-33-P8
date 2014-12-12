@@ -54,10 +54,13 @@ describe ExamGUI do
         exam = ExamGUI.new("Cuestionario de LPP 05/12/2014") {
             question "Cuantos argumentos de tipo bloque puede recibir un metodo?",
                 right =>'1',
-                wrong => ['2','muchos','los que defina el usuario']
+                wrong => '2',
+                wrong => 'muchos',
+                wrong => 'los que defina el usuario'
 
             question "En Ruby los bloques son objetos que continen codigo",
-                right => 'FALSE'
+                right => 'FALSE',
+                wrong => 'TRUE'
         }
         
         expect(exam.show).to be == exam.name + 

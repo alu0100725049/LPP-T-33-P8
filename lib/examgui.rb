@@ -10,20 +10,32 @@ class ExamGUI
     def initialize(name = "Sin Nombre", &block)
         @exam = Exam.new(List.new)
         @name = name
-        
+        @counter = 0
         instance_eval &block if block != nil
     end
     
     def question(text, options = {})
+        @counter = 0
         distractors = [];   right = []
         
         right << "#{options[:right]}" if options[:right]
         
+        i=0
+        
+        options.each do |key,value|
+           if(key != :right )
+               distractors << value
+        end
+        end
+        
+        
         if(right == ["FALSE"] || right == ["TRUE"])
             add(:type => 0, :text => text, :right => right)
         elsif
-            add(:type => 1, :text => text, :right => right , :distractor => options[:wrong] )
+            add(:type => 1, :text => text, :right => right , :distractor => distractors )
         end
+        
+       puts "--------------" + "#{right}" + "#{distractors}"
         
     end
 
@@ -32,7 +44,8 @@ class ExamGUI
     end
     
     def wrong
-        :wrong
+        @counter += 1
+        "wrong#{@counter}:"
     end
     
     
