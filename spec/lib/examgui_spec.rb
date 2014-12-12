@@ -50,4 +50,25 @@ describe ExamGUI do
         expect(exam.show_i).to be == exam.name + "Es apropiado que una clase Tablero herede de una clase Juego\n\tTRUE\n\tFALSE\n2+5=\n\t4\n\t5\n\t6\n\tNinguna de las anteriores\n"
     end
 
+    it "Debe tener implementado un DSL" do
+        exam = ExamGUI.new("Cuestionario de LPP 05/12/2014") {
+            question "Cuantos argumentos de tipo bloque puede recibir un metodo?",
+                right =>'1',
+                wrong => ['2','muchos','los que defina el usuario']
+
+            question "En Ruby los bloques son objetos que continen codigo",
+                right => 'FALSE'
+        }
+        
+        expect(exam.show).to be == exam.name + 
+            "Cuantos argumentos de tipo bloque puede recibir un metodo?\n"+
+                "\t2\n"+
+                "\tmuchos\n"+
+                "\tlos que defina el usuario\n"+
+                "\t1\n"+
+            "En Ruby los bloques son objetos que continen codigo\n"+
+                "\tTRUE\n" +
+                "\tFALSE\n"
+    end
+
 end
